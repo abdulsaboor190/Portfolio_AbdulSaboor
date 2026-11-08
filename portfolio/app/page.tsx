@@ -1,7 +1,28 @@
+import { FeaturedProjects } from "@/components/bento/FeaturedProjects";
+import { Hero } from "@/components/hero/Hero";
+import { BentoGrid } from "@/components/bento/BentoGrid";
+import { GithubTile } from "@/components/bento/GithubTile";
+import { InterestsTile } from "@/components/bento/InterestsTile";
+import { StatusTile } from "@/components/bento/StatusTile";
+
 export default function Home() {
   return (
-    <div className="flex min-h-[60vh] items-center justify-center">
-      <h1 className="text-h1 font-heading text-primary">Abdul Saboor</h1>
-    </div>
+    <>
+      <Hero />
+
+      {/* Hero bento strip — three dashboard tiles, mobile order:
+          status → interests → GitHub (docs/wireframes.md §2). */}
+      <section aria-label="Status overview" className="pb-16 md:pb-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <BentoGrid className="md:grid-cols-3">
+            <StatusTile />
+            <InterestsTile />
+            <GithubTile />
+          </BentoGrid>
+        </div>
+      </section>
+
+      <FeaturedProjects />
+    </>
   );
 }
