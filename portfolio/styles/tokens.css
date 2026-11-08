@@ -94,3 +94,30 @@
   --color-archived: #8b8474;
   --color-error: #f87171;
 }
+
+/* ==========================================================================
+   Theme layer (docs/theme-spec.md) — ADDITIVE ONLY.
+   Chess-framing accent for annotation marks, drop caps, board strips and
+   credits. Never on interactive elements. --paper/--ink/--rule alias the
+   base tokens so they adapt to both themes automatically.
+   ========================================================================== */
+
+:root {
+  --theme-accent: #166534;            /* deep green — theme-spec §1 */
+  --theme-accent-foreground: #ffffff;
+  --paper: var(--color-bg);
+  --ink: var(--color-text-primary);
+  --rule: var(--color-border);
+
+  /* Bookish serif (drop caps, resume) + display face (title card only).
+     The var(--font-*) hooks are filled by next/font where the font is
+     actually loaded — see lib/fonts.ts. Fallbacks keep stacks valid. */
+  --font-book: var(--font-eb-garamond, "EB Garamond"), Georgia, "Times New Roman", serif;
+  --font-title: var(--font-cinzel, "Cinzel"), Georgia, "Times New Roman", serif;
+}
+
+.dark,
+[data-theme="dark"] {
+  --theme-accent: #34d399;
+  --theme-accent-foreground: #1a1206;
+}

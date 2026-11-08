@@ -2,6 +2,7 @@
 // Route: /tokens-preview (temporary verification page — delete before launch).
 
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { cinzel, ebGaramond } from "@/lib/fonts";
 // but it still builds — remove the folder entirely before deploying).
 
 const COLORS = [
@@ -109,15 +110,82 @@ function ThemeBlock({ theme }: { theme: "light" | "dark" }) {
   );
 }
 
+const THEME_ACCENT = { light: "#166534", dark: "#34D399" } as const;
+
+const ANNOTATION_MARKS = [
+  { mark: "!", meaning: "verified fact", hidden: "verified:" },
+  { mark: "!!", meaning: "signature result", hidden: "key result:" },
+  { mark: "?!", meaning: "open question", hidden: "open question:" },
+  { mark: "?", meaning: "unverified", hidden: "unverified:" },
+] as const;
+
+function ThemeLayerBlock({ theme }: { theme: "light" | "dark" }) {
+  return (
+    <section
+      className={
+        theme === "dark"
+          ? "dark bg-background text-primary p-8"
+          : "bg-background text-primary p-8"
+      }
+    >
+      <h2 className="text-h2 mb-6">Theme layer — {theme}</h2>
+
+      <h3 className="text-h3 mb-3">Theme tokens</h3>
+      <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-5">
+        {(
+          [
+            ["theme-accent", "bg-theme-accent"],
+            ["theme-accent-fg", "bg-theme-accent-foreground"],
+            ["paper", "bg-paper"],
+            ["ink", "bg-ink"],
+            ["rule", "bg-rule"],
+          ] as const
+        ).map(([name, cls]) => (
+          <div key={name} className="overflow-hidden rounded-tile border border-border">
+            <div className={`h-16 ${cls}`} />
+            <div className="bg-surface p-2">
+              <p className="text-caption font-mono">{name}</p>
+              <p className="text-caption text-muted">
+                {name === "theme-accent" ? THEME_ACCENT[theme] : "alias"}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="text-h3 mb-3">Theme fonts</h3>
+      <div className="mb-8 space-y-3">
+        <p className="font-book text-h3">EB Garamond — bookish serif for drop caps</p>
+        <p className="font-title text-h1 uppercase">Cinzel — title card only</p>
+      </div>
+
+      <h3 className="text-h3 mb-3">Annotation marks</h3>
+      <ul className="space-y-2">
+        {ANNOTATION_MARKS.map(({ mark, meaning, hidden }) => (
+          <li key={mark} className="flex items-baseline gap-3 text-body text-secondary">
+            <span className="font-mono text-theme-accent" aria-hidden="true">
+              {mark}
+            </span>
+            <span className="sr-only">{hidden}</span>
+            <span>{meaning}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export default function TokensPreview() {
   return (
-    <main>
+    <main className={`${ebGaramond.variable} ${cinzel.variable}`}>
       <p className="flex items-center justify-center gap-3 bg-error px-4 py-2 text-center text-small font-medium text-white">
         TEMPORARY TOKEN PREVIEW — DELETE app/tokens-preview/ BEFORE LAUNCH
         <ThemeToggle className="border-white/40 bg-transparent text-white hover:border-white hover:text-white" />
       </p>
       <ThemeBlock theme="light" />
       <ThemeBlock theme="dark" />
+      <ThemeLayerBlock theme="light" />
+      <ThemeLayerBlock theme="dark" />
     </main>
   );
 }

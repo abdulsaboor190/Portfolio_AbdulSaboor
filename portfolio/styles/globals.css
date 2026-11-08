@@ -47,6 +47,15 @@
   --radius-tile: var(--radius-tile);
   --radius-button: var(--radius-button);
   --radius-chip: var(--radius-chip);
+
+  /* Theme layer (docs/theme-spec.md) — additive, no look change */
+  --color-theme-accent: var(--theme-accent);
+  --color-theme-accent-foreground: var(--theme-accent-foreground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-rule: var(--rule);
+  --font-book: var(--font-book);
+  --font-title: var(--font-title);
 }
 
 @layer base {
