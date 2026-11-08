@@ -8,7 +8,11 @@ import { ProjectTile } from "./ProjectTile";
 // DOM order = mobile reading order: strongest project first.
 export function FeaturedProjects() {
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="pb-16 md:pb-24">
+    <section
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="scroll-mt-20 pb-16 md:scroll-mt-24 md:pb-24"
+    >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 id="projects-heading" className="text-h2 mb-8 text-primary md:mb-12">
           Featured projects
@@ -23,7 +27,7 @@ export function FeaturedProjects() {
         <p className="mt-8">
           <Link
             href="/projects"
-            className="text-small text-accent underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="inline-flex min-h-11 items-center text-small text-accent underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
           >
             View all projects →
           </Link>

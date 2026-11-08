@@ -16,6 +16,9 @@ export const site = {
   // Hero bento strip — "currently building" tile value
   currentlyBuilding: "ShieldHer",
 
+  // TODO: target role phrasing — content/copy.md §1 still has [TARGET ROLE]
+  targetRole: null as string | null,
+
   links: {
     github: process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/abdulsaboor190",
     // TODO: add LinkedIn URL to .env.local as NEXT_PUBLIC_LINKEDIN_URL

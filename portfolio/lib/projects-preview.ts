@@ -1,4 +1,3 @@
-import type { ComponentProps } from "react";
 import type { Status } from "@/components/shared/StatusChip";
 
 // Temporary typed data until the MDX pipeline exists (Phase 3).

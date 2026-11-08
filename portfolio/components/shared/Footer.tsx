@@ -18,7 +18,7 @@ export function Footer() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-small text-secondary no-underline hover:text-primary"
+            className="inline-flex min-h-11 items-center text-small text-secondary no-underline hover:text-primary"
           >
             GitHub
           </a>
@@ -27,7 +27,7 @@ export function Footer() {
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-small text-secondary no-underline hover:text-primary"
+              className="inline-flex min-h-11 items-center text-small text-secondary no-underline hover:text-primary"
             >
               LinkedIn
             </a>
@@ -35,14 +35,14 @@ export function Footer() {
           {EMAIL ? (
             <a
               href={`mailto:${EMAIL}`}
-              className="text-small text-secondary no-underline hover:text-primary"
+              className="inline-flex min-h-11 items-center text-small text-secondary no-underline hover:text-primary"
             >
               Email
             </a>
           ) : (
             <Link
               href="/#contact"
-              className="text-small text-secondary no-underline hover:text-primary"
+              className="inline-flex min-h-11 items-center text-small text-secondary no-underline hover:text-primary"
             >
               Email
             </Link>

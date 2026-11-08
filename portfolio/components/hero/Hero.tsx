@@ -40,7 +40,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Abdul Saboor on GitHub"
-              className="inline-flex items-center gap-2 text-small text-secondary no-underline transition-colors hover:text-primary"
+              className="inline-flex min-h-11 items-center gap-2 text-small text-secondary no-underline transition-colors hover:text-primary"
             >
               <GithubIcon className="size-4" />
               GitHub
@@ -53,7 +53,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Abdul Saboor on LinkedIn"
-                className="inline-flex items-center gap-2 text-small text-secondary no-underline transition-colors hover:text-primary"
+                className="inline-flex min-h-11 items-center gap-2 text-small text-secondary no-underline transition-colors hover:text-primary"
               >
                 <LinkedinIcon className="size-4" />
                 LinkedIn
@@ -65,7 +65,7 @@ export function Hero() {
               <a
                 href={`mailto:${site.links.email}`}
                 aria-label={`Email Abdul Saboor at ${site.links.email}`}
-                className="inline-flex items-center gap-2 text-small text-secondary no-underline transition-colors hover:text-primary"
+                className="inline-flex min-h-11 items-center gap-2 text-small text-secondary no-underline transition-colors hover:text-primary"
               >
                 Email
               </a>

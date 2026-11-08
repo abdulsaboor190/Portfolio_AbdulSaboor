@@ -1,4 +1,8 @@
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
+import { Experience } from "@/components/sections/Experience";
 import { FeaturedProjects } from "@/components/bento/FeaturedProjects";
+import { Skills } from "@/components/sections/Skills";
 import { Hero } from "@/components/hero/Hero";
 import { BentoGrid } from "@/components/bento/BentoGrid";
 import { GithubTile } from "@/components/bento/GithubTile";
@@ -23,6 +27,10 @@ export default function Home() {
       </section>
 
       <FeaturedProjects />
+      <Skills />
+      <Experience />
+      <About />
+      <Contact />
     </>
   );
 }

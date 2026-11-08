@@ -14,7 +14,10 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("py-16 md:py-24", className)}>
+    <section
+      id={id}
+      className={cn("scroll-mt-20 py-16 md:scroll-mt-24 md:py-24", className)}
+    >
       <Container>
         {title ? (
           <h2 className="text-h2 mb-8 text-primary md:mb-12">{title}</h2>
