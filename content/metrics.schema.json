@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Portfolio Metric",
+  "description": "Single measurable claim used on the site. Every metric must carry a source note; values stay null until actually measured.",
+  "type": "object",
+  "required": ["label", "value", "unit", "note", "source"],
+  "additionalProperties": false,
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "Human-readable metric name, e.g. 'Avg. vehicle waiting time (PPO)'.",
+      "minLength": 1
+    },
+    "value": {
+      "type": ["number", "string", "null"],
+      "description": "Measured value. Use null while unmeasured. Numbers must not be estimates; strings allowed for non-numeric facts (e.g. 'Socket.IO')."
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measure, e.g. 's/veh', 'vehicles/hour', 'count', 'runs'. Use '—' or '' when unitless."
+    },
+    "note": {
+      "type": "string",
+      "description": "Context needed to interpret the value: scenario, baseline comparison, date range, caveats. Empty string allowed."
+    },
+    "source": {
+      "type": "string",
+      "description": "Where the number came from: file, run batch, dashboard, export. Required and non-empty for any non-null value; 'TODO' allowed only while value is null."
+    }
+  },
+  "examples": [
+    {
+      "label": "Avg. vehicle waiting time — PPO agent",
+      "value": null,
+      "unit": "s/veh",
+      "note": "Mean ± std across 30 runs, medium-demand scenario, 300s warmup excluded.",
+      "source": "TODO"
+    },
+    {
+      "label": "API endpoints",
+      "value": 14,
+      "unit": "count",
+      "note": "Express router definitions in server/routes.",
+      "source": "ticketflow repo, routes/*.ts, counted 2026-11-08"
+    }
+  ]
+}
