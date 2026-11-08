@@ -1,5 +1,7 @@
 // ⚠️ TEMPORARY — design-token verification page. DELETE BEFORE LAUNCH.
 // Route: /tokens-preview (temporary verification page — delete before launch).
+
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 // but it still builds — remove the folder entirely before deploying).
 
 const COLORS = [
@@ -110,8 +112,9 @@ function ThemeBlock({ theme }: { theme: "light" | "dark" }) {
 export default function TokensPreview() {
   return (
     <main>
-      <p className="bg-error px-4 py-2 text-center text-small font-medium text-white">
+      <p className="flex items-center justify-center gap-3 bg-error px-4 py-2 text-center text-small font-medium text-white">
         TEMPORARY TOKEN PREVIEW — DELETE app/tokens-preview/ BEFORE LAUNCH
+        <ThemeToggle className="border-white/40 bg-transparent text-white hover:border-white hover:text-white" />
       </p>
       <ThemeBlock theme="light" />
       <ThemeBlock theme="dark" />
