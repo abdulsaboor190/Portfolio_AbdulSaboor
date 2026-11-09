@@ -1,0 +1,69 @@
+---
+title: "Example Project"
+slug: "example"
+summary: "Draft sample used to verify every case-study component end to end."
+status: "In progress"
+category: ["Full-Stack"]
+featured: false
+order: 99
+role: "Solo developer"
+tools: ["Next.js", "MDX"]
+stack: ["Next.js", "TypeScript", "MDX"]
+period: "2026"
+metrics:
+  - label: "API endpoints"
+    value: null
+    unit: "count"
+    note: "TODO: count from repo before publishing"
+    source: "TODO"
+links:
+  repo: "https://github.com/abdulsaboor190/Portfolio_AbdulSaboor"
+---
+
+## Problem
+
+Campus maintenance requests arrived through three different channels and
+nobody could say where any single request stood. This draft exists to show
+the case-study layout — replace every section with the real write-up.
+
+## What I built
+
+A typed MDX pipeline: frontmatter validated by Zod at build time, content
+rendered through a component library, and a credits block generated from
+the same frontmatter.
+
+## Architecture
+
+<ArchitectureDiagram title="Content pipeline" caption="MDX file → gray-matter → Zod → page" />
+
+## A hard problem and my decision
+
+<MoveCallout
+  mark="!"
+  decision="Chose next-mdx-remote over @next/mdx so content can live outside app/."
+  alternative="@next/mdx, which requires MDX files inside the app directory."
+  outcome="Content stays in content/projects/ as data; routes stay clean."
+/>
+
+<Callout>
+A general note aside — use it for context that supports the story without
+being the decision itself.
+</Callout>
+
+## Result
+
+TODO — replace with measured outcomes only (content/metrics.md truth rules).
+
+<MetricChart kind="bar" title="Example metric" data='[{"label":"Baseline","value":42},{"label":"V2","value":31}]' source="TODO: real run" />
+
+<Figure
+  src="/media/profile-headshot.jpg"
+  alt="TODO: real figure alt text"
+  caption="TODO: caption"
+/>
+
+<VideoEmbed
+  src="https://www.loom.com/share/TODO-real-clip"
+  provider="loom"
+  caption="TODO: real video URL"
+/>

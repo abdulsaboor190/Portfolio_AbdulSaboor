@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PersonalFacts",
+  "description": "Single source of truth for personal facts shown on the site and resume. Every fact carries a value, lastVerified date, and a source note.",
+  "type": "object",
+  "required": ["chess", "currentlyReading", "recentlyWatched", "shelf", "decisions", "credits"],
+  "additionalProperties": false,
+  "definitions": {
+    "verified": {
+      "type": "object",
+      "required": ["lastVerified", "source"],
+      "properties": {
+        "lastVerified": {
+          "type": ["string", "null"],
+          "description": "ISO date YYYY-MM-DD when the fact was last confirmed, or null while TODO."
+        },
+        "source": {
+          "type": "string",
+          "description": "Where the fact can be checked (profile URL, repo, etc.). 'TODO' allowed only while unfilled."
+        }
+      }
+    },
+    "annotationMark": {
+      "enum": ["!", "!!", "?!", "?"]
+    }
+  },
+  "properties": {
+    "chess": {
+      "allOf": [{ "$ref": "#/definitions/verified" }],
+      "type": "object",
+      "required": ["platform", "username", "rating", "favorite"],
+      "properties": {
+        "platform": { "enum": ["lichess", "chess.com", null] },
+        "username": { "type": ["string", "null"] },
+        "rating": {
+          "type": "object",
+          "required": ["value", "timeControl"],
+          "properties": {
+            "value": { "type": ["number", "null"], "description": "Real rating or null if 'none to show'." },
+            "timeControl": { "type": ["string", "null"] }
+          }
+        },
+        "favorite": {
+          "type": "object",
+          "properties": {
+            "opening": { "type": ["string", "null"] },
+            "player": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "currentlyReading": {
+      "allOf": [{ "$ref": "#/definitions/verified" }],
+      "type": "object",
+      "required": ["title", "author", "take"],
+      "properties": {
+        "title": { "type": ["string", "null"] },
+        "author": { "type": ["string", "null"] },
+        "take": { "type": ["string", "null"], "description": "One-line personal take." }
+      }
+    },
+    "recentlyWatched": {
+      "allOf": [{ "$ref": "#/definitions/verified" }],
+      "type": "object",
+      "required": ["title", "year", "take"],
+      "properties": {
+        "title": { "type": ["string", "null"] },
+        "year": { "type": ["number", "null"] },
+        "take": { "type": ["string", "null"] }
+      }
+    },
+    "shelf": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["type", "title", "take"],
+        "properties": {
+          "type": { "enum": ["book", "film"] },
+          "title": { "type": "string" },
+          "take": { "type": "string", "description": "One-line takeaway." }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "description": "One 'the move I played' callout per featured project.",
+      "items": {
+        "type": "object",
+        "required": ["project", "decision", "alternative", "outcome", "mark"],
+        "properties": {
+          "project": { "type": "string", "description": "Project slug, e.g. traffic-control." },
+          "decision": { "type": ["string", "null"], "description": "The decision I made." },
+          "alternative": { "type": ["string", "null"], "description": "The alternative I rejected." },
+          "outcome": { "type": ["string", "null"], "description": "What happened." },
+          "mark": { "$ref": "#/definitions/annotationMark" }
+        }
+      }
+    },
+    "credits": {
+      "type": "array",
+      "description": "Role credit per project, e.g. 'Solo developer'.",
+      "items": {
+        "type": "object",
+        "required": ["project", "role"],
+        "properties": {
+          "project": { "type": "string" },
+          "role": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

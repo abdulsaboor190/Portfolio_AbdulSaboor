@@ -1,17 +1,28 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import type { ProjectPreview } from "@/lib/projects-preview";
+import type { Status } from "@/components/shared/StatusChip";
 import { BentoTile } from "./BentoTile";
 import { StatusChip } from "@/components/shared/StatusChip";
 
+export interface ProjectTileData {
+  slug: string;
+  title: string;
+  outcome: string;
+  stack: string[];
+  status: Status;
+  size: "large" | "medium";
+  cover?: string;
+  coverAlt?: string;
+}
+
 const MAX_TAGS = 4;
 
-const sizeClasses: Record<ProjectPreview["size"], string> = {
+const sizeClasses: Record<ProjectTileData["size"], string> = {
   large: "md:col-span-7 md:row-span-2",
   medium: "md:col-span-5",
 };
 
-function Cover({ project }: { project: ProjectPreview }) {
+function Cover({ project }: { project: ProjectTileData }) {
   if (project.cover) {
     return (
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-tile border border-border bg-surface-raised">
@@ -41,7 +52,7 @@ function Cover({ project }: { project: ProjectPreview }) {
   );
 }
 
-export function ProjectTile({ project }: { project: ProjectPreview }) {
+export function ProjectTile({ project }: { project: ProjectTileData }) {
   const visibleTags = project.stack.slice(0, MAX_TAGS);
   const hiddenCount = project.stack.length - visibleTags.length;
   const isLarge = project.size === "large";

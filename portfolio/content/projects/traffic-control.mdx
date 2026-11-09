@@ -1,0 +1,70 @@
+---
+title: AI-Powered Adaptive Traffic Control System
+slug: traffic-control
+summary: A traffic signal system that estimates vehicle density with YOLOv8 and adjusts signal timing with a PPO agent trained in SUMO, plus a live dashboard.
+status: Shipped
+category: ["AI/ML", "Full-Stack"]
+featured: true
+order: 1
+role: "Solo developer"
+stack: ["Python", "YOLOv8", "PPO (Stable Baselines3)", "SUMO", "FastAPI", "WebSockets", "React", "TypeScript"]
+links: {}
+metrics: []
+cover: "/media/traffic-control/architecture.svg"
+period: "2025"
+---
+
+## Problem
+
+Fixed-time traffic signals run on a schedule regardless of actual traffic. When one approach backs up, vehicles wait even when the cross street is empty. I wanted a signal controller that could see the intersection and respond to what was actually happening.
+
+{/* TODO: expand with real problem context if you have it (e.g. which intersection, what data source, what constraint motivated the project). */}
+
+## What I built
+
+A system that estimates vehicle density with YOLOv8 and adjusts signal timing using a PPO agent trained in SUMO. On top of that, I built a FastAPI + React dashboard that streams live traffic metrics over WebSockets, with emergency-vehicle signal preemption.
+
+{/* TODO: [PASTE extra details — how density is computed from detections, PPO state/action/reward design, training setup, SUMO scenarios, dashboard features, challenges faced] */}
+
+## Architecture
+
+<ArchitectureDiagram
+  src="/media/traffic-control/architecture.svg"
+  alt="Diagram showing the pipeline: camera feed or SUMO simulation feeds YOLOv8 density estimation, which feeds a PPO agent that sets signal timing in SUMO; metrics flow through FastAPI over a WebSocket stream to a React dashboard."
+  caption="End-to-end pipeline: perception (YOLOv8) → decision (PPO) → environment (SUMO) → streaming dashboard (FastAPI + WebSockets + React)."
+/>
+
+The perception side runs YOLOv8 detections and reduces them to a density estimate per approach. The decision side is a PPO agent trained inside SUMO, which outputs signal timing. A FastAPI backend exposes the metrics and handles emergency-vehicle preemption, streaming updates to the React dashboard over WebSockets.
+
+{/* TODO: replace the generic paragraph above with the real design detail once you paste the extra details. */}
+
+## A hard problem and my decision
+
+{/* TODO: no decision recorded in content/personal-facts.md — fill in when you have one. Example shape:
+<MoveCallout
+  mark="?!"
+  decision="TODO: the decision I made, in one sentence."
+  alternative="TODO: the alternative I rejected."
+  outcome="TODO: what happened."
+/>
+*/}
+
+## Result
+
+{/* TODO: benchmark — real numbers from SUMO runs are not yet in content/metrics.md.
+     Once available, add frontmatter metrics (waiting time baseline vs PPO,
+     queue length, throughput, runs, scenarios, seeds) and use MetricsStrip +
+     MetricChart here to compare the fixed timer against the PPO agent.
+     Do NOT estimate numbers. */}
+
+The system runs end to end: detections become density estimates, the PPO agent sets signal timing in SUMO, and the dashboard shows live metrics with emergency-vehicle preemption. Quantitative comparison against the fixed-timer baseline is still being measured.
+
+{/* TODO: [PASTE real benchmark numbers from content/metrics.md, or "NOT YET AVAILABLE"] */}
+
+{/* TODO: demo video — add a SUMO clip to public/media/traffic-control/ first, then:
+<VideoEmbed provider="file" src="/media/traffic-control/demo.mp4" poster="/media/traffic-control/poster.jpg" />
+*/}
+
+## Links
+
+See the credits below for role, stack and period. Demo and repository links will be added here once a public deployment or repo exists — I won't link to anything that isn't real.

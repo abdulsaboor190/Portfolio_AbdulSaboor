@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="tc-title tc-desc">
+  <title id="tc-title">Traffic Control system architecture</title>
+  <desc id="tc-desc">Flow from camera or SUMO simulation through YOLOv8 density estimation and a PPO agent to signal timing, then metrics stream over WebSocket to a React dashboard.</desc>
+
+  <!-- Edit freely: boxes use token colors via CSS variables so the diagram
+       adapts to light and dark themes. Keep viewBox in sync if you resize. -->
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" style="fill:var(--color-text-muted, #666)"/>
+    </marker>
+  </defs>
+
+  <!-- Row 1: input -->
+  <g>
+    <rect x="40" y="60" width="200" height="72" rx="12" style="fill:var(--color-surface-raised, #eee); stroke:var(--color-border-strong, #999)"/>
+    <text x="140" y="88" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">Camera feed</text>
+    <text x="140" y="110" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">or SUMO simulation</text>
+  </g>
+
+  <!-- Row 1: perception -->
+  <g>
+    <rect x="330" y="60" width="200" height="72" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-accent, #c2410c)"/>
+    <text x="430" y="88" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">YOLOv8</text>
+    <text x="430" y="110" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">vehicle density estimate</text>
+  </g>
+
+  <!-- Row 1: decision -->
+  <g>
+    <rect x="620" y="60" width="200" height="72" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-accent, #c2410c)"/>
+    <text x="720" y="88" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">PPO agent</text>
+    <text x="720" y="110" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">signal timing decision</text>
+  </g>
+
+  <!-- Row 1: environment -->
+  <g>
+    <rect x="330" y="200" width="200" height="72" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="430" y="228" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">SUMO</text>
+    <text x="430" y="250" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">traffic simulation</text>
+  </g>
+
+  <!-- Row 1: backend -->
+  <g>
+    <rect x="620" y="200" width="200" height="72" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="720" y="228" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">FastAPI</text>
+    <text x="720" y="250" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">metrics + preemption API</text>
+  </g>
+
+  <!-- Row 2: stream -->
+  <g>
+    <rect x="330" y="320" width="200" height="64" rx="12" style="fill:var(--color-surface-raised, #eee); stroke:var(--color-border-strong, #999)"/>
+    <text x="430" y="346" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">WebSocket stream</text>
+    <text x="430" y="366" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">live metrics</text>
+  </g>
+
+  <!-- Row 2: frontend -->
+  <g>
+    <rect x="620" y="320" width="200" height="64" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-accent, #c2410c)"/>
+    <text x="720" y="346" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">React dashboard</text>
+    <text x="720" y="366" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">live traffic view</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="240" y1="96" x2="326" y2="96" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="530" y1="96" x2="616" y2="96" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="132" x2="720" y2="196" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="236" x2="724" y2="236" style="stroke:var(--color-text-muted, #666)" stroke-width="0"/>
+  <line x1="616" y1="236" x2="534" y2="236" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="430" y1="272" x2="430" y2="316" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="530" y1="352" x2="616" y2="352" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 720 272 L 720 300 L 530 300 L 530 316" fill="none" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
