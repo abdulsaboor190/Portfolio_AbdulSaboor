@@ -5,6 +5,7 @@ import type { Status } from "@/components/shared/StatusChip";
 import type { ProjectTileData } from "./ProjectTile";
 import { BentoGrid } from "./BentoGrid";
 import { ProjectTile } from "./ProjectTile";
+import { Reveal } from "@/components/shared/Reveal";
 
 const STATUS_MAP: Record<Project["status"], Status> = {
   Live: "live",
@@ -40,18 +41,26 @@ export function FeaturedProjects() {
       className="scroll-mt-20 pb-16 md:scroll-mt-24 md:pb-24"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 id="projects-heading" className="text-h2 mb-8 text-primary md:mb-12">
-          Featured projects
-        </h2>
+        <Reveal>
+          <h2 id="projects-heading" className="text-h2 mb-8 text-primary md:mb-12">
+            Featured projects
+          </h2>
+        </Reveal>
         {tiles.length > 0 ? (
           <BentoGrid>
-            {tiles.map((tile) => (
-              <ProjectTile key={tile.slug} project={tile} />
+            {tiles.map((tile, i) => (
+              // Reveal wrapper carries the grid span (it is the grid item);
+              // stagger ≤60ms per tile. ProjectTile keeps `size` for styling.
+              <Reveal
+                key={tile.slug}
+                delay={i * 60}
+                className={i === 0 ? "md:col-span-7 md:row-span-2" : "md:col-span-5"}
+              >
+                <ProjectTile project={tile} />
+              </Reveal>
             ))}
           </BentoGrid>
         ) : null}
-        {/* TODO: /projects index route does not exist yet (Phase 3).
-            Link will 404 until then — intentional placeholder. */}
         <p className="mt-8">
           <Link
             href="/projects"

@@ -9,7 +9,8 @@ const tileBase =
   "rounded-tile border border-border bg-surface p-4 md:p-6";
 
 const interactive =
-  "transition-colors duration-200 ease-out hover:border-border-strong hover:bg-surface-raised " +
+  "transition-[color,background-color,border-color,transform,opacity] duration-150 ease-out " +
+  "hover:border-border-strong hover:bg-surface-raised motion-safe:hover:-translate-y-0.5 " +
   "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2";
 
 type CommonProps = {

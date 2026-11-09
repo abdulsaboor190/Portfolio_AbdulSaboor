@@ -4,7 +4,7 @@ import type { Status } from "@/components/shared/StatusChip";
 import { StatusChip } from "@/components/shared/StatusChip";
 import { MetricsStrip } from "./MetricsStrip";
 import { Credits } from "./Credits";
-import { cinzel } from "@/lib/fonts";
+import { cinzel, ebGaramond } from "@/lib/fonts";
 
 const STATUS_MAP: Record<Project["status"], Status> = {
   Live: "live",
@@ -25,7 +25,7 @@ export function CaseStudyLayout({
   children: ReactNode;
 }) {
   return (
-    <article className={`mx-auto w-full max-w-prose px-4 py-16 sm:px-6 md:py-24 ${cinzel.variable}`}>
+    <article className={`mx-auto w-full max-w-prose px-4 py-16 sm:px-6 md:py-24 ${cinzel.variable} ${ebGaramond.variable}`}>
       <p className="text-mono-chip font-mono uppercase tracking-wider text-muted">
         Game notes
         {project.category.length ? ` · ${project.category.join(" / ")}` : ""}

@@ -89,7 +89,7 @@ export function Nav() {
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex size-9 items-center justify-center rounded-button border border-border bg-surface text-secondary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="inline-flex size-11 items-center justify-center rounded-button border border-border bg-surface text-secondary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
