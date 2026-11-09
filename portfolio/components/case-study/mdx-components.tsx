@@ -2,7 +2,8 @@
 // prop). Import this in app/projects/[slug]/page.tsx.
 //
 // Usage inside MDX:
-//   <Callout variant="decision">…</Callout>
+//   <Callout>…</Callout>
+//   <MoveCallout mark="!" decision="…" alternative="…" outcome="…" />
 //   <ArchitectureDiagram title="System overview" caption="…" />
 //   <VideoEmbed src="/media/projects/x-clip.mp4" caption="…" />
 //   <Figure src="/media/projects/x.png" alt="…" caption="…" />
@@ -12,6 +13,7 @@ import { ArchitectureDiagram } from "./ArchitectureDiagram";
 import { Callout } from "./Callout";
 import { Figure } from "./Figure";
 import { MetricChart } from "./MetricChart";
+import { MoveCallout } from "./MoveCallout";
 import { VideoEmbed } from "./VideoEmbed";
 
 export const mdxComponents = {
@@ -19,5 +21,6 @@ export const mdxComponents = {
   Callout,
   Figure,
   MetricChart,
+  MoveCallout,
   VideoEmbed,
 };

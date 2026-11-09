@@ -8,13 +8,31 @@ import type { ReactNode } from "react";
 //
 // Token colors only: SVG uses var(--color-*) so it adapts to both themes.
 
-type Props = {
-  title?: string;
-  caption?: string;
-  svg?: ReactNode;
-  src?: string;
-  alt?: string;
-};
+type Props =
+  | {
+      title?: string;
+      caption?: string;
+      /** Inline hand-editable SVG (preferred — see TemplateDiagram below). */
+      svg: ReactNode;
+      src?: never;
+      alt?: never;
+    }
+  | {
+      title?: string;
+      caption?: string;
+      /** Raster diagram — alt text is REQUIRED. */
+      src: string;
+      alt: string;
+      svg?: never;
+    }
+  | {
+      title?: string;
+      caption?: string;
+      /** Neither provided → built-in template diagram. */
+      svg?: never;
+      src?: never;
+      alt?: never;
+    };
 
 export function ArchitectureDiagram({ title, caption, svg, src, alt }: Props) {
   return (

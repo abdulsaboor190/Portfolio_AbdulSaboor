@@ -13,17 +13,39 @@ const MetricChartInner = dynamic(() => import("./MetricChartInner"), {
 
 export type ChartDatum = { label: string; value: number };
 
+function parseData(data: ChartDatum[] | string | undefined): ChartDatum[] {
+  if (Array.isArray(data)) return data;
+  if (typeof data === "string") {
+    try {
+      const parsed = JSON.parse(data);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
 export function MetricChart({
   data,
   title,
   kind = "bar",
   source,
 }: {
-  data: ChartDatum[];
+  // MDX prop expressions don't always survive next-mdx-remote — a JSON
+  // string like data='[{"label":"A","value":1}]' is the reliable form.
+  data: ChartDatum[] | string;
   title?: string;
   kind?: "bar" | "line";
   source?: string;
 }) {
-  if (!data.length) return null;
-  return <MetricChartInner data={data} title={title} kind={kind} source={source} />;
+  const points = parseData(data);
+  if (points.length === 0) {
+    if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
+      console.log("[MetricChart] missing/invalid data prop:", data);
+    }
+    return null;
+  }
+  return <MetricChartInner data={points} title={title} kind={kind} source={source} />;
 }

@@ -217,6 +217,18 @@
     border: 1px solid var(--color-border);
   }
 
+  /* Single decorative drop cap on the first paragraph (theme-spec §5 —
+     the case study's one allowed ornament). EB Garamond via --font-book. */
+  .mdx-body.dropcap-first > p:first-of-type::first-letter {
+    font-family: var(--font-book);
+    font-size: 3.2em;
+    line-height: 0.85;
+    float: left;
+    padding-right: var(--space-2);
+    padding-top: var(--space-1);
+    color: var(--theme-accent);
+  }
+
   .mdx-body table {
     width: 100%;
     border-collapse: collapse;

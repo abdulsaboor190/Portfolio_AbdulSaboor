@@ -37,6 +37,10 @@ export const projectSchema = z.object({
     .optional(),
   cover: z.string().optional(),
   period: z.string().optional(),
+  /** Credit role shown in the end-credits block, e.g. "Solo developer". */
+  role: z.string().optional(),
+  /** Tools/libraries used — "Tools" row in end credits. */
+  tools: z.array(z.string()).optional(),
 });
 
 export type ProjectFrontmatter = z.infer<typeof projectSchema>;
