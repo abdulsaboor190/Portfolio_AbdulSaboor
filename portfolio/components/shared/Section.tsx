@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Container } from "./Container";
+import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 
 export function Section({
@@ -20,7 +21,9 @@ export function Section({
     >
       <Container>
         {title ? (
-          <h2 className="text-h2 mb-8 text-primary md:mb-12">{title}</h2>
+          <Reveal>
+            <h2 className="text-h2 mb-8 text-primary md:mb-12">{title}</h2>
+          </Reveal>
         ) : null}
         {children}
       </Container>

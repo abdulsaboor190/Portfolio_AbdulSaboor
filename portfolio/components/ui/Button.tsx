@@ -5,7 +5,9 @@ type Variant = "primary" | "secondary" | "ghost";
 
 const base =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-button px-5 text-body font-medium " +
-  "transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 " +
+  "transition-[color,background-color,border-color,transform,opacity] duration-150 " +
+  "motion-safe:hover:-translate-y-px motion-safe:active:scale-[0.98] " +
+  "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 " +
   "disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {

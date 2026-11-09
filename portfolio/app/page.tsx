@@ -8,6 +8,7 @@ import { BentoGrid } from "@/components/bento/BentoGrid";
 import { GithubTile } from "@/components/bento/GithubTile";
 import { InterestsTile } from "@/components/bento/InterestsTile";
 import { StatusTile } from "@/components/bento/StatusTile";
+import { Reveal } from "@/components/shared/Reveal";
 
 export default function Home() {
   return (
@@ -18,11 +19,13 @@ export default function Home() {
           status → interests → GitHub (docs/wireframes.md §2). */}
       <section aria-label="Status overview" className="pb-16 md:pb-24">
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-          <BentoGrid className="md:grid-cols-3">
-            <StatusTile />
-            <InterestsTile />
-            <GithubTile />
-          </BentoGrid>
+          <Reveal>
+            <BentoGrid className="md:grid-cols-3">
+              <StatusTile />
+              <InterestsTile />
+              <GithubTile />
+            </BentoGrid>
+          </Reveal>
         </div>
       </section>
 

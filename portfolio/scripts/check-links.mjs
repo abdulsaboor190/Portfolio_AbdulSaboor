@@ -74,9 +74,6 @@ function scanText(file, text) {
   }
   // bare external URLs in prose (e.g. https://github.com/...)
   // skip template literals — ${...} placeholders aren't real URLs
-  for (const m of text.matchAll(/https?:\/\/[^\s"'<>)\]`]*\$\{[^}]*\}[^\s"'<>)\]`]*/g)) {
-    // mask them so the generic pass below doesn't grab a partial URL
-  }
   const masked = text.replace(/https?:\/\/[^\s"'<>)\]`]*\$\{[^}]*\}[^\s"'<>)\]`]*/g, " ");
   for (const m of masked.matchAll(EXTERNAL_RE)) {
     const url = m[0].replace(/[.,;:!?]+$/, "");
