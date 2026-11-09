@@ -99,7 +99,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       title={`Theme: ${LABELS[current]} → ${LABELS[next]}`}
       onClick={() => setTheme(next)}
       className={cn(
-        "inline-flex size-9 items-center justify-center rounded-button",
+        "inline-flex size-11 items-center justify-center rounded-button",
         "border border-border bg-surface text-secondary",
         "transition-colors hover:border-border-strong hover:text-primary",
         "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
