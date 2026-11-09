@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" role="img" aria-labelledby="fscm-title fscm-desc">
+  <title id="fscm-title">FSCM architecture</title>
+  <desc id="fscm-desc">React frontend with role-based dashboards calls REST APIs; the API serves facility, event and equipment data from a PostgreSQL database.</desc>
+
+  <defs>
+    <marker id="fscm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" style="fill:var(--color-text-muted, #666)"/>
+    </marker>
+  </defs>
+
+  <!-- Frontend -->
+  <g>
+    <rect x="60" y="140" width="240" height="90" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-accent, #c2410c)"/>
+    <text x="180" y="172" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">React frontend</text>
+    <text x="180" y="194" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">responsive UI + role dashboards</text>
+    <text x="180" y="212" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">facilities · events · equipment</text>
+  </g>
+
+  <!-- API -->
+  <g>
+    <rect x="430" y="140" width="220" height="90" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="540" y="172" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">REST API</text>
+    <text x="540" y="194" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">CRUD operations</text>
+    <text x="540" y="212" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">role-based access</text>
+  </g>
+
+  <!-- Database -->
+  <g>
+    <rect x="760" y="140" width="160" height="90" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="840" y="172" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">PostgreSQL</text>
+    <text x="840" y="194" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">relational data</text>
+    <text x="840" y="212" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:12px sans-serif">bookings &amp; users</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="300" y1="185" x2="426" y2="185" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#fscm-arrow)"/>
+  <text x="360" y="175" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:11px sans-serif">JSON / HTTPS</text>
+  <line x1="650" y1="185" x2="756" y2="185" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#fscm-arrow)"/>
+</svg>

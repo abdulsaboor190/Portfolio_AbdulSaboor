@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="wf-title wf-desc">
+  <title id="wf-title">TicketFlow ticket status workflow</title>
+  <desc id="wf-desc">Allowed status transitions: Open can move to Assigned or Closed; Assigned moves to In Progress; In Progress moves to Resolved or back to Open; Resolved moves to Closed.</desc>
+
+  <!-- TODO: verify these states/transitions against the actual Express
+       workflow code — states below follow the example in content/metrics.md
+       and may need correcting. -->
+
+  <defs>
+    <marker id="wf-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" style="fill:var(--color-text-muted, #666)"/>
+    </marker>
+  </defs>
+
+  <!-- States -->
+  <g>
+    <rect x="60" y="110" width="140" height="60" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-accent, #c2410c)"/>
+    <text x="130" y="146" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">Open</text>
+  </g>
+  <g>
+    <rect x="280" y="40" width="140" height="60" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="350" y="76" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">Assigned</text>
+  </g>
+  <g>
+    <rect x="280" y="180" width="140" height="60" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="350" y="216" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">In Progress</text>
+  </g>
+  <g>
+    <rect x="540" y="40" width="140" height="60" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="610" y="76" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">Resolved</text>
+  </g>
+  <g>
+    <rect x="540" y="180" width="140" height="60" rx="12" style="fill:var(--color-surface, #fff); stroke:var(--color-border-strong, #999)"/>
+    <text x="610" y="216" text-anchor="middle" style="fill:var(--color-text-primary, #111); font:600 15px sans-serif">Closed</text>
+  </g>
+
+  <!-- Transitions -->
+  <line x1="200" y1="120" x2="276" y2="80" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <text x="222" y="88" style="fill:var(--color-text-muted, #666); font:11px sans-serif">assign</text>
+  <line x1="200" y1="160" x2="276" y2="200" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <text x="222" y="196" style="fill:var(--color-text-muted, #666); font:11px sans-serif">close</text>
+  <line x1="350" y1="100" x2="350" y2="176" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <text x="360" y="145" style="fill:var(--color-text-muted, #666); font:11px sans-serif">start</text>
+  <line x1="420" y1="70" x2="536" y2="70" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <text x="478" y="62" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:11px sans-serif">resolve</text>
+  <line x1="420" y1="210" x2="536" y2="210" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <text x="478" y="202" text-anchor="middle" style="fill:var(--color-text-muted, #666); font:11px sans-serif">reopen</text>
+  <path d="M 610 100 L 610 176" fill="none" style="stroke:var(--color-text-muted, #666)" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <text x="622" y="145" style="fill:var(--color-text-muted, #666); font:11px sans-serif">confirm</text>
+</svg>

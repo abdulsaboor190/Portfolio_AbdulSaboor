@@ -1,0 +1,64 @@
+---
+title: FSCM — FAST Sports Complex Management System
+slug: fscm
+summary: A full-stack platform for running a sports complex — facilities, events, and equipment — with role-based dashboards on React and PostgreSQL.
+status: Shipped
+category: ["Full-Stack"]
+featured: false
+order: 4
+role: "TODO: solo or team — record in personal-facts.md"
+stack: ["React", "Node.js", "PostgreSQL", "REST APIs"]
+links: {}
+metrics: []
+cover: "/media/fscm/architecture.svg"
+period: "TODO: year"
+---
+
+## Problem
+
+Running a sports complex means coordinating facilities, events, and equipment across different kinds of staff — and most of that coordination lives in spreadsheets and group chats. FSCM was built to give the complex a single system for it.
+
+{/* TODO: confirm or replace with your real motivation — copy.md only gives the feature list, not why you built it. */}
+
+## What I built
+
+FSCM manages sports facilities, events, and equipment with CRUD operations and role-based dashboards. It pairs a responsive React frontend with REST APIs over a PostgreSQL database.
+
+{/* TODO: [PASTE extra details — entities modeled, how role dashboards differ, API surface, deployment setup, challenges] */}
+
+## Architecture
+
+<ArchitectureDiagram
+  src="/media/fscm/architecture.svg"
+  alt="Diagram showing a responsive React frontend with role-based dashboards calling REST APIs, which read and write a PostgreSQL database covering facilities, events, equipment, bookings and users."
+  caption="React frontend with role-based dashboards → REST API (CRUD + role access) → PostgreSQL."
+/>
+
+The React frontend adapts to the device and shows different dashboards depending on the user's role. The REST API layer handles CRUD for facilities, events, and equipment, and PostgreSQL holds the relational data behind it.
+
+{/* TODO: replace the generic paragraph above with real design detail once extra details are provided. */}
+
+## A hard problem and my decision
+
+{/* TODO: no decision recorded in content/personal-facts.md — fill in when you have one. Example shape:
+<MoveCallout
+  mark="!"
+  decision="TODO: the decision I made, in one sentence."
+  alternative="TODO: the alternative I rejected."
+  outcome="TODO: what happened."
+/>
+*/}
+
+## Result
+
+{/* TODO: metrics — real counts (entities, endpoints, dashboards) are not yet
+     in content/metrics.md. Add them to frontmatter metrics when available.
+     Do NOT estimate numbers. */}
+
+FSCM covers the core of complex management: facilities, events, and equipment can be created and tracked, and each role sees the dashboard relevant to their work. Quantitative detail and deployment status are still being confirmed.
+
+{/* TODO: [PASTE real counts/status from content/metrics.md, or "NOT YET"] */}
+
+## Links
+
+See the credits below. No public demo or repository link yet — I'll add them only when they exist.

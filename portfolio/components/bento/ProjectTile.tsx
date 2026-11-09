@@ -10,7 +10,7 @@ export interface ProjectTileData {
   outcome: string;
   stack: string[];
   status: Status;
-  size: "large" | "medium";
+  size: "large" | "medium" | "card";
   cover?: string;
   coverAlt?: string;
 }
@@ -20,6 +20,7 @@ const MAX_TAGS = 4;
 const sizeClasses: Record<ProjectTileData["size"], string> = {
   large: "md:col-span-7 md:row-span-2",
   medium: "md:col-span-5",
+  card: "",
 };
 
 function Cover({ project }: { project: ProjectTileData }) {
