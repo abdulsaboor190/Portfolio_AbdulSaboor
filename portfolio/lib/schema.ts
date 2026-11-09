@@ -10,7 +10,7 @@ export const projectSchema = z.object({
     .string()
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be lowercase kebab-case"),
   summary: z.string().min(1, "summary is required"),
-  status: z.enum(["Live", "In progress", "Archived"]),
+  status: z.enum(["Live", "In progress", "Archived", "Shipped"]),
   category: z
     .array(z.enum(["Full-Stack", "AI/ML", "Mobile"]))
     .min(1, "at least one category is required"),

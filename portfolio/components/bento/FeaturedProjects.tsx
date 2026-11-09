@@ -10,6 +10,7 @@ const STATUS_MAP: Record<Project["status"], Status> = {
   Live: "live",
   "In progress": "in-progress",
   Archived: "archived",
+  Shipped: "shipped",
 };
 
 function toTileData(project: Project, index: number): ProjectTileData {

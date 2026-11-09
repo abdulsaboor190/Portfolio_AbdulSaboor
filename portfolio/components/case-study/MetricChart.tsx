@@ -42,7 +42,6 @@ export function MetricChart({
   const points = parseData(data);
   if (points.length === 0) {
     if (process.env.NODE_ENV === "development") {
-      // eslint-disable-next-line no-console
       console.log("[MetricChart] missing/invalid data prop:", data);
     }
     return null;
