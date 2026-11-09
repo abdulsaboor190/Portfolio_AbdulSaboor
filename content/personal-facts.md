@@ -11,12 +11,12 @@ typed loader the site and resume read from.
 
 ## Chess
 
-- Platform: `TODO` — Lichess / Chess.com / none
-- Username: `TODO`
-- Rating: `TODO` — real rating + time control, or "none to show"
+- Platform: `chess.com`
+- Username: `rapid_19`
+- Rating: `979` Rapid — provided 2026-11-09
 - Favorite opening or player: `TODO` (optional)
-- Last verified: `TODO` (YYYY-MM-DD)
-- Checkable at: `TODO` (profile URL)
+- Last verified: `2026-11-09`
+- Checkable at: https://www.chess.com/member/rapid_19
 
 ## Currently reading
 

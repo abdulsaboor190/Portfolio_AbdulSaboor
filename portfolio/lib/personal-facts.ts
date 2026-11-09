@@ -42,12 +42,12 @@ export interface PersonalFacts {
 
 export const personalFacts: PersonalFacts = {
   chess: {
-    platform: null, // TODO: lichess | chess.com | null
-    username: null, // TODO
-    rating: { value: null, timeControl: null }, // TODO: real rating + TC, or "none to show"
+    platform: "chess.com",
+    username: "rapid_19",
+    rating: { value: 979, timeControl: "Rapid" },
     favorite: { opening: null, player: null }, // TODO (optional)
-    lastVerified: null, // TODO: YYYY-MM-DD
-    source: "TODO", // TODO: profile URL
+    lastVerified: "2026-11-09",
+    source: "https://www.chess.com/member/rapid_19",
   },
   currentlyReading: {
     title: null, // TODO
