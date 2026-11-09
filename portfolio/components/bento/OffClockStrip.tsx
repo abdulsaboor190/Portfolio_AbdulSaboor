@@ -1,4 +1,5 @@
 import { personalFacts } from "@/lib/personal-facts";
+import { getChessRating } from "@/lib/chess";
 import { BentoGrid } from "./BentoGrid";
 import { BentoTile } from "./BentoTile";
 
@@ -41,8 +42,9 @@ function chessProfileUrl(platform: "lichess" | "chess.com", username: string) {
     : `https://www.chess.com/member/${username}`;
 }
 
-export function OffClockStrip() {
+export async function OffClockStrip() {
   const { chess, currentlyReading, recentlyWatched } = personalFacts;
+  const liveRating = await getChessRating();
 
   const tiles: React.ReactNode[] = [];
 
@@ -54,8 +56,8 @@ export function OffClockStrip() {
     chess.favorite.player !== null;
   if (hasChessContent) {
     const rating =
-      chess.rating.value !== null
-        ? `${chess.rating.value}${chess.rating.timeControl ? ` (${chess.rating.timeControl})` : ""}`
+      liveRating !== null
+        ? `${liveRating.value}${liveRating.timeControl ? ` ${liveRating.timeControl}` : ""}`
         : null;
     const fallback =
       chess.favorite.opening ?? chess.favorite.player
