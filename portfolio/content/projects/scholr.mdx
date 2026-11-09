@@ -1,0 +1,69 @@
+---
+title: Scholr
+slug: scholr
+summary: A campus-only mobile app for listing, browsing, and requesting books, with real-time messaging and a Dockerized backend.
+status: Shipped
+category: ["Full-Stack", "Mobile"]
+featured: true
+order: 3
+role: "TODO: solo or team — record in personal-facts.md"
+stack: ["React Native", "Node.js", "Docker"]
+links: {}
+metrics: []
+cover: "/media/scholr/architecture.svg"
+period: "TODO: year"
+---
+
+## Problem
+
+Students buy or receive books they only need for one course, then the books sit on a shelf. Scholr gives books a second life by letting students within a campus network list, browse, and request them from each other.
+
+{/* TODO: if you wrote a "why I built this" line anywhere, paste it here — this paragraph is reconstructed from copy.md's outcome line. */}
+
+## What I built
+
+A cross-platform mobile app for listing, browsing, and requesting books within a campus network. I implemented real-time messaging between users and containerized the backend services with Docker.
+
+{/* TODO: [PASTE extra details — how real-time messaging works (Socket.io or WebSockets), number of services, screenshots available, repo link, challenges, why I built it] */}
+
+## Architecture
+
+<ArchitectureDiagram
+  src="/media/scholr/architecture.svg"
+  alt="Diagram showing a React Native mobile app connecting over REST and real-time channels to Node.js backend services running in Docker, which read and write the app's data store."
+  caption="React Native app → containerized Node.js services (API + messaging) in Docker → data store."
+/>
+
+The app is React Native, so the same codebase targets iOS and Android. The backend is split into Node.js services — an API for listings and requests, and a messaging service for real-time chat — all containerized with Docker for deployment.
+
+{/* TODO: confirm the messaging tech (Socket.io vs WebSockets vs other) and the actual service split — the diagram shows "API + messaging service" as a placeholder. Also confirm what database Scholr uses; the diagram says "Database" generically. */}
+
+{/* TODO: phone-frame screenshots — none exist in public/media/scholr/ yet.
+     When you have them, drop the PNGs there and add e.g.:
+<Figure src="/media/scholr/listings.png" alt="TODO: describe the screen" caption="Book listings screen." />
+     wrapped in a CSS-only phone frame component (not yet built). */}
+
+## A hard problem and my decision
+
+{/* TODO: no decision recorded in content/personal-facts.md — fill in when you have one. Candidate: choosing the real-time messaging approach. Example shape:
+<MoveCallout
+  mark="?!"
+  decision="TODO: the decision I made, in one sentence."
+  alternative="TODO: the alternative I rejected."
+  outcome="TODO: what happened."
+/>
+*/}
+
+## Result
+
+{/* TODO: metrics — service count and platform targets are TODO in
+     content/metrics.md and copy.md. Add real values to frontmatter metrics
+     when confirmed. Do NOT estimate. */}
+
+Scholr covers the core loop: a student lists a book they don't need, another student browses or searches the campus network and requests it, and the two can message each other in real time to arrange the handoff. The backend runs as Docker containers, so the whole stack deploys together.
+
+{/* TODO: [PASTE real details from content/metrics.md / extra details, or "NOT YET"] */}
+
+## Links
+
+See the credits below. No public repo or demo link yet — I'll add them only when they exist.
