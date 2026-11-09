@@ -1,0 +1,79 @@
+---
+title: TicketFlow
+slug: ticketflow
+summary: A full-stack ticketing system for campus maintenance issues, with JWT auth, three roles, an enforced status workflow, and a full audit history on PostgreSQL.
+status: Shipped
+category: ["Full-Stack"]
+featured: true
+order: 2
+role: "Solo developer"
+stack: ["React", "Node.js", "Express", "PostgreSQL", "JWT", "REST API"]
+links: {}
+metrics: []
+cover: "/media/ticketflow/architecture.svg"
+period: "2025"
+---
+
+## Problem
+
+Campus maintenance issues — a broken tap, a flickering light, a clogged drain — get reported in person or over group chats and then disappear. There was no single place to file a report, track who owns it, or see what happened to it.
+
+{/* TODO: confirm or replace with your real motivation for building this. */}
+
+## What I built
+
+A full-stack ticketing system for reporting and resolving campus issues, with JWT authentication and role-based access for Reporters, Technicians, and Admins. I implemented REST APIs with an enforced ticket status workflow, assignment, comments, and a status-change audit history, backed by a relational PostgreSQL schema.
+
+{/* TODO: [PASTE extra details — why I built it, the status workflow states and allowed transitions, the database tables, how role permissions work, deployment setup, challenges] */}
+
+## Architecture
+
+<ArchitectureDiagram
+  src="/media/ticketflow/architecture.svg"
+  alt="Diagram showing a React frontend communicating over HTTPS with an Express REST API; JWT bearer tokens enforce role-based access; the API reads and writes a relational PostgreSQL database."
+  caption="Three-tier structure: React frontend → Express API with JWT auth and an enforced status workflow → PostgreSQL."
+/>
+
+The React frontend talks to an Express REST API. JWT bearer tokens carry the user's role, and the API enforces which actions each role can perform. All state lives in a relational PostgreSQL schema, including the audit history of every status change.
+
+<Figure
+  src="/media/ticketflow/status-workflow.svg"
+  alt="Diagram of the ticket status workflow: Open can be assigned or closed; Assigned moves to In Progress; In Progress can be resolved or reopened; Resolved moves to Closed."
+  caption="Ticket lifecycle. Transitions are enforced server-side — clients cannot skip states."
+/>
+
+{/* TODO: verify the states and transitions above against the real workflow code — they currently reflect the example in content/metrics.md and may be wrong. */}
+
+## A hard problem and my decision
+
+{/* TODO: no decision recorded in content/personal-facts.md — fill in when you have one. Candidate from your resume: enforcing status transitions server-side rather than trusting the client. Example shape:
+<MoveCallout
+  mark="!"
+  decision="TODO: the decision I made, in one sentence."
+  alternative="TODO: the alternative I rejected."
+  outcome="TODO: what happened."
+/>
+*/}
+
+## Result
+
+{/* TODO: metrics — real counts (API endpoints, DB tables, roles, transitions)
+     are not yet in content/metrics.md. When available, add them to
+     frontmatter metrics so MetricsStrip renders them. Do NOT estimate. */}
+
+TicketFlow covers the full lifecycle: a Reporter files an issue, a Technician picks it up and moves it through the workflow, an Admin oversees the board, and every status change is recorded in an audit history. The status workflow is enforced in the API, so no client can skip a step.
+
+{/* TODO: [PASTE real counts from content/metrics.md, or "NOT YET"] */}
+
+{/* TODO: "Try it yourself" callout — add once a demo is deployed and you
+     provide demo credentials:
+<Callout>
+  <p><strong>Try it yourself.</strong> Demo: TODO URL. Sign in as Reporter /
+  Technician / Admin with the demo accounts listed in the repo README
+  (demo-only credentials).</p>
+</Callout>
+*/}
+
+## Links
+
+See the credits below for role, stack and period. No public demo or repository link yet — I'll add them only when they exist.
