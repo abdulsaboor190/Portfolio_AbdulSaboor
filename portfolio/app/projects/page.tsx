@@ -13,11 +13,19 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Things Abdul Saboor has built — full-stack systems and applied AI/ML projects.",
+  alternates: { canonical: "/projects" },
   openGraph: {
     title: "Projects — Abdul Saboor",
     description:
       "Things Abdul Saboor has built — full-stack systems and applied AI/ML projects.",
     type: "website",
+    url: "/projects",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects — Abdul Saboor",
+    description:
+      "Things Abdul Saboor has built — full-stack systems and applied AI/ML projects.",
   },
 };
 
