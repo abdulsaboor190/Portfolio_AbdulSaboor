@@ -53,3 +53,17 @@ export type Project = ProjectFrontmatter & {
   /** True for _-prefixed draft files — dev only, never in prod builds. */
   draft: boolean;
 };
+
+// Contact form — shared by the API route (server validation) and the
+// React Hook Form resolver (client validation). Limits are deliberately
+// generous but bounded.
+export const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Enter a valid email").max(254),
+  message: z.string().trim().min(10, "Message is too short").max(5000),
+  /** Honeypot — must stay empty. Bots fill it; humans never see it.
+      Any value is accepted by validation and dropped silently by the API. */
+  website: z.string().optional(),
+});
+
+export type ContactInput = z.infer<typeof contactSchema>;
