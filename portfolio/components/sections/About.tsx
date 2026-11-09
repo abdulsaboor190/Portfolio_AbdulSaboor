@@ -1,5 +1,6 @@
 import { site } from "@/lib/site-config";
 import { Section } from "@/components/shared/Section";
+import { OffClockStrip } from "@/components/bento/OffClockStrip";
 
 // Paragraph verbatim from content/copy.md §1 (About).
 const ABOUT_PARAGRAPH =
@@ -47,6 +48,7 @@ export function About() {
           ) : null}
         </div>
       </div>
+      <OffClockStrip />
     </Section>
   );
 }
