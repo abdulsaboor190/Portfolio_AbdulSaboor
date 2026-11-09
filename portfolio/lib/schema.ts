@@ -39,6 +39,8 @@ export const projectSchema = z.object({
   period: z.string().optional(),
   /** Credit role shown in the end-credits block, e.g. "Solo developer". */
   role: z.string().optional(),
+  /** Chess-stage label for in-progress work: Opening | Middlegame | Endgame. */
+  stage: z.enum(["Opening", "Middlegame", "Endgame"]).optional(),
   /** Tools/libraries used — "Tools" row in end credits. */
   tools: z.array(z.string()).optional(),
 });
