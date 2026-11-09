@@ -31,3 +31,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # Non-blocking: external URL checks can be flaky; internal/media
+      # failures still print but don't fail CI (continue-on-error).
+      - name: Link audit
+        run: npm run check-links
+        continue-on-error: true
